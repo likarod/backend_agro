@@ -13,11 +13,11 @@ const pool = mariadb.createPool({
 
 // Seleccionar los productos y los precios.
 
-exports.dameProductoPrecio = async (nombre) => {
+exports.dameProductoPrecioProductor = async (nombre) => {
     let conn;
     try{
         conn = await pool.getConnection();
-        let res = await conn.query(`SELECT Producto.Producto, ProductorProducto.PrecioProducto FROM Producto, ProductorProducto WHERE Producto.Producto=(?) AND Producto.CIIU=ProductorProducto.CIIU`, [nombre]);
+        let res = await conn.query(`SELECT Producto.Producto, Productor.razonSocial, ProductorProducto.PrecioProducto, Direccion.DescripcionCanton FROM Producto, ProductorProducto, Productor, Direccion WHERE Producto.Producto=(?) AND Producto.CIIU=ProductorProducto.CIIU AND Productor.productorID=ProductorProducto.productorID AND Productor.productorID=Direccion.productorID`, [nombre]);
         return res
     }catch(e){
         console.log(e)

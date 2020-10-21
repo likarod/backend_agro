@@ -6,7 +6,7 @@ const app = express();
 // app.use(express.static('client'));
 app.use(cors());
 /* Rutas del GET*/ 
-app.get('/buscarProducto', modulo.getArticulos);
+app.get('/buscarProducto/:query', modulo.getArticulos);
 app.get('/mostarDireccion');
 
 /* Rutas del POST */ 

@@ -2,8 +2,9 @@ const bbddProducto = require('./Productos.js')
 
 
 exports.getArticulos = (req, res) => {
+    const query = req.params.query;
     console.log("entrando")
-    bbddProducto.dameProductoPrecio ("CULTIVO DE CACAO.")
+    bbddProducto.dameProductoPrecioProductor (query)
     .then((datos) => {
         console.log("enviado")
         res.json(datos)
