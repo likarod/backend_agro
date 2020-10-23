@@ -8,8 +8,11 @@ const app = express();
 app.use(express.static(path.join(__dirname,'build')));
 app.use(cors());
 
+
 /* Rutas del GET*/ 
-app.get('/*', modulo.mostrarOtrasRutas)
+app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  });
 app.get('/buscarProducto/:query', modulo.getArticulos);
 app.get('/mostarDireccion');
 
