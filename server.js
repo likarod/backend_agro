@@ -1,11 +1,15 @@
 const express = require('express');
 const modulo = require('./modulos/moduloControlador.js');
 const cors = require('cors');
+const path = require('path');
+
 const app = express();
 
-// app.use(express.static('client'));
+app.use(express.static(path.join(__dirname,'build')));
 app.use(cors());
+
 /* Rutas del GET*/ 
+app.get('/*', modulo.mostrarOtrasRutas)
 app.get('/buscarProducto/:query', modulo.getArticulos);
 app.get('/mostarDireccion');
 
