@@ -23,5 +23,7 @@ app.post('/realizarCompra');
 
 
 app.listen(port, function ( ){
-    console.log('¡Aplicación de ejemplo escuchando en el puerto 3000!')
+    console.log('¡Aplicación de ejemplo escuchando en el puerto!' + port)
 })
+
+// Cambios
