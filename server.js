@@ -2,7 +2,7 @@ const express = require('express');
 const modulo = require('./modulos/moduloControlador.js');
 const cors = require('cors');
 const path = require('path');
-
+const port = 3000 || process.env.PORT;
 const app = express();
 
 app.use(express.static(path.join(__dirname,'build')));
@@ -22,6 +22,6 @@ app.post('/guardarConsumidor');
 app.post('/realizarCompra');
 
 
-app.listen(3000, function ( ){
+app.listen(port, function ( ){
     console.log('¡Aplicación de ejemplo escuchando en el puerto 3000!')
 })
