@@ -2,7 +2,7 @@ const express = require('express');
 const modulo = require('./modulos/moduloControlador.js');
 const cors = require('cors');
 const path = require('path');
-const port = 3000 || process.env.PORT;
+const port = 5000 || process.env.PORT;
 const app = express();
 
 app.use(express.static(path.join(__dirname,'build')));
